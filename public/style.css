@@ -1,3 +1,121 @@
-h1 {
-    color: blue
+body {
+    background-image: url("https://t4.ftcdn.net/jpg/01/12/82/31/500_F_112823118_S7BNSmQ6jF1s0wAVoPEkWkReHFQW49CM.jpg");
+    background-color: #aaaaaa;
+}
+
+.box {
+    height: 800px;
+    width: 300px;
+    background-color: #dfd8ae;
+    border-radius: 6px;
+    opacity: 0.95;
+    margin: auto;
+    margin-top: 50px;
+    position: static;
+
+}
+
+#title {
+    background-color: maroon;
+    width: 100%;
+    height: 80px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    font-family: "Helvetica";
+}
+
+#title-text {
+    margin-left: 15%;
+    padding-top: 5%;
+    font-size: 45px;
+    color: #d8ce3e;
+}
+.info_text {
+    opacity: 1;
+    color: #111333;
+    font-weight: bold;
+    font-family: "Helvetica";
+    margin-left: 19.6%;
+    width: 200px;
+    margin-bottom: 0;
+    font-size: 13px;
+}
+.heading_text {
+    opacity: 1;
+    color: maroon;
+    font-family: "Helvetica";
+    margin-left: 19.6%;
+    width: 200px;
+    margin-bottom: 0;
+}
+
+.heading_input {
+    border: none;
+    margin-left: 19.5%;
+    width: 176px;
+    font-family: "Lato";
+    border-radius: 2px;
+    color: #222222;
+    opacity: 1;
+    padding-left: 3px;
+    height: 30px;
+
+}
+
+.runbot {
+    background-color: maroon;
+    width: 181px;
+    height: auto;
+    border-radius: 6px;
+    margin-left: 19.5%;
+}
+
+.runbot-text {
+    margin-left: 56px;
+    font-size: 22px;
+    color: #d8ce3e
+}
+
+.checkDiv {
+    margin-top: 22px;
+    text-align: center;
+    color: white;
+    display: inline-block;
+    width: 48%;
+    box-sizing: border-box;
+}
+
+.check_input {
+    width: 35px;
+    height: 27px;
+    background: #fff;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+}
+
+.check_text {
+    color: maroon;
+    font-style: Helvetica;
+}
+
+#stop {
+    display: none;
+}
+
+#music {
+    display: none;
+}
+
+textarea {
+    margin: auto;
+    width: 300px;
+    height: 100px;
+    border: 6px solid maroon;
+    background-color: black;
+    color: #d8ce3e;
+    margin-bottom: 20%;
+    resize:none;
+    box-sizing: border-box;
 }
