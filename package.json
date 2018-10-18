@@ -1,0 +1,28 @@
+{
+  "name": "fr-col-bot",
+  "version": "1.0.0",
+  "description": "FR-Col-Bot is a browser automation solution of the browser game Flight Rising I built for my wife. It attempts to farm the game mode collesium by simulating user click and keyboard command via nightmare.js",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "nightmare": "^3.0.1",
+    "nightmare-real-mouse": "^1.1.0",
+    "vo": "^4.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/L-Hopper416/FR-Col-Bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/L-Hopper416/FR-Col-Bot/issues"
+  },
+  "homepage": "https://github.com/L-Hopper416/FR-Col-Bot#readme"
+}

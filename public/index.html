@@ -14,67 +14,72 @@
         <div id="title">
             <p id="title-text">FR Col Bot</p>
         </div>
-        <div id="heading">
-            <p class="info_text">Fill out your account info. FR Col Bot will login and farm the level you choose
-                until the desired time is reached. Whenever a captcha is discovered Fr Col Bot will
-                stop and alert music(if desired) until captcha is manually resolved.</p>
-        </div>
-        <div class="runbot">
-            <p class="runbot-text" onclick="demo()" id="demo">Demo</p>
-        </div>
-        <div class="heading">
-            <p class="heading_text">Level</p>
-            <select class="heading_input" name="Level">
-                <option value="1">Training Fields (Levels 1-3)</option>
-                <option value="2">Woodland Path (Levels 4-6)</option>
-                <option value="3">Scorched Forest (Levels 7-8)</option>
-                <option value="4">Sandswept Delta (Levels 9-10)</option>
-                <option value="5">Blooming Grove (Level 11)</option>
-                <option value="6">Forgotten Cave (Level 12)</option>
-                <option value="7">Bamboo Falls (Levels 13-14)</option>
-                <option value="8">Redrock Cove (Level 15)</option>
-                <option value="9"> Waterway (Level 16)</option>
-                <option value="10">Arena (Level 17)</option>
-                <option value="11">Volcanic Vents (Level 18)</option>
-                <option value="12">Rainsong Jungle (Level 19)</option>
-                <option value="13">Boreal Wood (Level 20)</option>
-                <option value="14">Crystal Pools (Level 21)</option>
-                <option value="15"> Harpy's Roost (Level 22)</option>
-                <option value="16">Ghostlight Ruins (Level 23)</option>
-                <option value="17">Mire (Level 24)</option>
-                <option value="18">Kelp Beds (Level 25)</option>
-                <option value="19">Golem Workshop (Level 25)</option>
-            </select>
-        </div>
-        <div class="heading">
-            <p class="heading_text">Username</p>
-            <input class="heading_input" type="text" placeholder="Bobster" required>
-        </div>
-        <div class="heading">
-            <p class="heading_text">Password</p>
-            <input class="heading_input" type="Password" placeholder="Drowssap" required>
-        </div>
-        <div class="heading">
-            <p class="heading_text">Run Time</p>
-            <input type="time" class="heading_input" id="run-time" name="run-time" min="00:00" max="23:59" required />
-        </div>
+        <form>
+            <div id="heading">
+                <p class="info_text">Fill out your account info. FR Col Bot will login and farm the level you choose
+                    until the desired time is reached. Whenever a captcha is discovered Fr Col Bot will
+                    stop and alert music(if desired) until captcha is manually resolved.</p>
+            </div>
+            <div class="runbot">
+                <p class="runbot-text" onclick="demo()" id="demo">Demo</p>
+            </div>
+            <div class="heading">
+                <p class="heading_text">Level</p>
+                <select class="heading_input" name="Level" id="level">
+                    <option value="1">Training Fields (Levels 1-3)</option>
+                    <option value="2">Woodland Path (Levels 4-6)</option>
+                    <option value="3">Scorched Forest (Levels 7-8)</option>
+                    <option value="4">Sandswept Delta (Levels 9-10)</option>
+                    <option value="5">Blooming Grove (Level 11)</option>
+                    <option value="6">Forgotten Cave (Level 12)</option>
+                    <option value="7">Bamboo Falls (Levels 13-14)</option>
+                    <option value="8">Redrock Cove (Level 15)</option>
+                    <option value="9"> Waterway (Level 16)</option>
+                    <option value="10">Arena (Level 17)</option>
+                    <option value="11">Volcanic Vents (Level 18)</option>
+                    <option value="12">Rainsong Jungle (Level 19)</option>
+                    <option value="13">Boreal Wood (Level 20)</option>
+                    <option value="14">Crystal Pools (Level 21)</option>
+                    <option value="15"> Harpy's Roost (Level 22)</option>
+                    <option value="16">Ghostlight Ruins (Level 23)</option>
+                    <option value="17">Mire (Level 24)</option>
+                    <option value="18">Kelp Beds (Level 25)</option>
+                    <option value="19">Golem Workshop (Level 25)</option>
+                </select>
+            </div>
+            <div class="heading">
+                <p class="heading_text">Username</p>
+                <input class="heading_input" type="text" id="username" placeholder="Bobster" required>
+            </div>
+            <div class="heading">
+                <p class="heading_text">Password</p>
+                <input class="heading_input" type="Password" id="password" placeholder="Drowssap" required>
+            </div>
+            <div class="heading">
+                <p class="heading_text">Run Time<br>
+                    <!-- <input type="time" class="heading_input" id="run-time" name="run-time" min="00:00" max="23:59" required /> -->
+                    Hrs <input type="number" class="time_input" name="hour" id="hour" min="00" max="02">
+                    Min<input type="number" class="time_input" name="minute" id="minute" min="00" max="59">
+                </p>
+            </div>
 
-        <div class="checkDiv">
-            <p class="check_text">Sound Alerts</p>
-            <input type="checkbox" class="check_input" name="feature" value="sound" checked />
-        </div>
-        <div class="checkDiv">
-            <p class="check_text">Show Bot</p>
-            <input type="checkbox" class="check_input" name="feature" value="electron" checked />
-        </div>
-        <div class="runbot">
-            <p class="runbot-text" onclick="start()" id="start">Run Bot</p>
-        </div>
+            <div class="checkDiv">
+                <p class="check_text">Sound Alerts</p>
+                <input type="checkbox" class="check_input" name="feature" id="sound" checked />
+            </div>
+            <div class="checkDiv">
+                <p class="check_text">Show Bot</p>
+                <input type="checkbox" class="check_input" name="feature" id="electron" checked />
+            </div>
+            <div class="runbot">
+                <button class="runbot-text" type="submit" onclick="runBot()" id="start">Run Bot</button>
+            </div>
+        </form>
         <div class="runbot">
             <p class="runbot-text" onclick="stop()" id="stop">Stop Bot</p>
         </div>
         <div class="runbot">
-            <p class="runbot-text" onclick="music()" id="music">Stop Music</p>
+            <p class="runbot-text" onclick="mute()" id="mute">mute</p>
         </div>
         <textarea readonly></textarea>
     </div>
