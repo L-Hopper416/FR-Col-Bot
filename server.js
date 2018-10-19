@@ -3,7 +3,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var path = require("path");
-
 // Sets up the Express App
 // =============================================================
 var app = express();
@@ -28,21 +27,44 @@ app.get("*", function (req, res) {
 app.post("/api", function (req, res) {
   userSettings = req.body.settings;
   stop = false;
+  ref.set([])
+  messageArray = []
   vo(run)(function () {
-    console.log("bot done")
+    addMessage("Bot Finished")
   });
   return res.json("Request Recived")
 });
 
 app.post("/stop", function (req, res) {
   stop = true
+  return res.json("Stopping Bot")
 });
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function () {
   console.log("App listening on PORT " + PORT);
 });
+// Firebase setup
+// =============================================================
+var admin = require('firebase-admin');
+var serviceAccount = require('./serviceAccountKey.json');
 
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: 'https://fr-col-bot.firebaseio.com'
+});
+// reference strings and clears it
+var db = admin.database();
+var ref = db.ref("strings");
+ref.set([])
+// array to store conole messages
+let messageArray = [];
+// function to add values to our Array
+const addMessage = value => {
+  console.log(value)
+  messageArray.push(value)
+  ref.set(messageArray)
+}
 // Nightmare dependencies
 // =============================================================
 const Nightmare = require('nightmare')
@@ -62,10 +84,10 @@ function* run() {
     height: 1000,
     width: 1200
   })
-  console.log("bot going")
-
+  addMessage("Bot Started")
   const ifStop = () => {
     if (stop) {
+      addMessage("Bot Stopped")
       nightmare.end()
     }
   }
@@ -75,48 +97,48 @@ function* run() {
     .type('#uname', userSettings.username || "lucaH")
     .type('#pword', userSettings.password || "UP43C7m3Kzu8ddD")
     .click('#big-login-form-button')
+  addMessage("Logged In")
   ifStop()
   yield nightmare
     .wait(3000)
     .click('a[href="http://www1.flightrising.com/coliseum"]')
-    .wait(3000)
+  addMessage("Entering Coliseum")
   ifStop()
   yield nightmare
+    .wait(3000)
     .realClick('#cnv', {
       x: 175,
       y: 320
     })
-    .wait(3000)
   ifStop()
   yield nightmare
+    .wait(3000)
     .realClick(`#venueSelects div:nth-child(${userSettings.level || 1})`, {
       x: 10,
       y: 10
     })
-    .wait(2000)
+  addMessage(`Selected level ${userSettings.level || 1}`)
   ifStop()
   yield nightmare
+    .wait(2000)
     .scrollTo(120, 0)
   // for loop to battle enimies. runs until user's chosen time is reached
-  console.log(Date.now() < userSettings.runTime)
   for (var i = 0; Date.now() < userSettings.runTime; i++) {
-    console.log(Date.now() < userSettings.runTime)
     // function to play alert music and alert screen 
     ifStop()
     // checks to see if their is a captcha
     var result = yield nightmare.exists(".camp-puzzle img")
     if (result) {
       // if there is a captcha it runs alertcaptcha function
-      console.log("captcha")
+      addMessage("Captcha Alert")
       yield nightmare.end()
 
     } else {
       // else it runs a fight sequnce
-      console.log("fight sequence")
-      yield nightmare
-        .wait(4000)
+      addMessage("Fighting!")
       ifStop()
       yield nightmare
+        .wait(4000)
         .realClick('#pl_content', {
           x: 560,
           y: 480
