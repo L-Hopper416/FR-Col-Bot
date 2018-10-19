@@ -102,10 +102,7 @@ function* run() {
   for (var i = 0; Date.now() < userSettings.runTime; i++) {
     console.log(Date.now() < userSettings.runTime)
     // function to play alert music and alert screen 
-    if (stop) {
-      yield nightmare.end()
-
-    }
+    ifStop()
     // checks to see if their is a captcha
     var result = yield nightmare.exists(".camp-puzzle img")
     if (result) {
@@ -118,79 +115,34 @@ function* run() {
       console.log("fight sequence")
       yield nightmare
         .wait(4000)
-      if (stop) {
-        yield nightmare.end()
-        nightmare.proc.disconnect();
-
-        nightmare = Nightmare({
-          show: userSettings.display || true,
-          height: 1000,
-          width: 1200
-        })
-      }
+      ifStop()
       yield nightmare
         .realClick('#pl_content', {
           x: 560,
           y: 480
         })
         .wait(2000)
-      if (stop) {
-        yield nightmare.end()
-        nightmare.proc.disconnect();
-
-        nightmare = Nightmare({
-          show: userSettings.display || true,
-          height: 1000,
-          width: 1200
-        })
-      }
+      ifStop()
       yield nightmare
         .realClick('#pl_content', {
           x: 560,
           y: 510
         })
         .wait(2000)
-      if (stop) {
-        yield nightmare.end()
-        nightmare.proc.disconnect();
-
-        nightmare = Nightmare({
-          show: userSettings.display || true,
-          height: 1000,
-          width: 1200
-        })
-      }
+      ifStop()
       yield nightmare
         .realClick('#pl_content', {
           x: 450,
           y: 480
         })
         .wait(1000)
-      if (stop) {
-        yield nightmare.end()
-        nightmare.proc.disconnect();
-
-        nightmare = Nightmare({
-          show: userSettings.display || true,
-          height: 1000,
-          width: 1200
-        })
-      }
+      ifStop()
       yield nightmare
         .type('body', 'a')
         .wait(1000)
         .type('body', 'a')
         .wait(300)
-      if (stop) {
-        yield nightmare.end()
-        nightmare.proc.disconnect();
-
-        nightmare = Nightmare({
-          show: userSettings.display || true,
-          height: 1000,
-          width: 1200
-        })
-      }
+      ifStop()
       yield nightmare
         .type('body', 'e')
         .wait(500)

@@ -88,8 +88,6 @@ button {
     margin-top: 1px;
     text-align: center;
     color: white;
-    display: inline-block;
-    width: 48%;
     box-sizing: border-box;
 }
 
@@ -108,21 +106,20 @@ button {
     font-style: Helvetica;
 }
 
-
-
-#mute {
-    display: none;
-}
-
-textarea {
+#textarea {
     margin: auto;
     margin-top: 5%;
     width: 300px;
     height: 100px;
-    border: 6px solid maroon;
+    border: 3px solid maroon;
     background-color: black;
     color: #d8ce3e;
     margin-bottom: 20%;
     resize:none;
     box-sizing: border-box;
+    overflow-y:auto
+}
+
+#textarea p{
+    margin: 0;
 }

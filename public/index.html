@@ -55,6 +55,10 @@
                 <p class="heading_text">Password</p>
                 <input class="heading_input" type="Password" id="password" placeholder="Drowssap" required>
             </div>
+            <div class="checkDiv">
+                <p class="check_text">Show Bot</p>
+                <input type="checkbox" class="check_input" name="feature" id="electron" checked />
+            </div>
             <div class="heading">
                 <p class="heading_text">Run Time<br>
                     <!-- <input type="time" class="heading_input" id="run-time" name="run-time" min="00:00" max="23:59" required /> -->
@@ -62,27 +66,24 @@
                     Min<input type="number" class="time_input" name="minute" id="minute" min="00" max="59">
                 </p>
             </div>
-
-            <div class="checkDiv">
-                <p class="check_text">Sound Alerts</p>
-                <input type="checkbox" class="check_input" name="feature" id="sound" checked />
-            </div>
-            <div class="checkDiv">
-                <p class="check_text">Show Bot</p>
-                <input type="checkbox" class="check_input" name="feature" id="electron" checked />
-            </div>
+            
             <div class="runbot">
-                <button class="runbot-text" type="submit" onclick="runBot()" id="start">Run Bot</button>
+                <button class="runbot-text"  type="submit" onclick="runBot()" id="start">Run Bot</button>
             </div>
         </form>
         <div class="runbot">
-            <p class="runbot-text" onclick="stop()" id="stop">Stop Bot</p>
+            <p class="runbot-text" style="display: none;" onclick="stop()" id="stop">Stop Bot</p>
         </div>
         <div class="runbot">
-            <p class="runbot-text" onclick="mute()" id="mute">mute</p>
+            <p class="runbot-text" onclick="mute()" id="mute">Mute</p>
         </div>
-        <textarea readonly></textarea>
+        <div class="runbot">
+            <p class="runbot-text" style="display: none;" onclick="unmute()" id="unmute">Unmute</p>
+        </div>
+        <div id = "textarea"></div>
     </div>
 </body>
+<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-database.js"></script>
 <script src = "script.js"></script>
 </html>
